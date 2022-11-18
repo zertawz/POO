@@ -13,4 +13,4 @@ manière qu'en C.
 1. Les Types construits sont "Points", "Etat", "Sexe" (coord, etat, sexe).
 2. Les Types primitifs sont des "int" (currentId, id, age).
 3. Les attributs de classe sont "currentId" qui est un attribut statique, tous les autres sont des attributs d'instances.
-4. Etat et Sexe
+4. Etat et Sexe sont
