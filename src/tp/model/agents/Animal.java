@@ -40,6 +40,7 @@ public class Animal {
 		 * une bonne manière de faire 
 		 * en utilisant ce qui existe déjà, une moins bonne
 		 */
+		this(Sexe, new Point(0,0));
 	}
 	
 	public Animal() {
@@ -48,6 +49,7 @@ public class Animal {
 		 * une bonne manière de faire 
 		 * en utilisant ce qui existe déjà, une moins bonne
 		 */
+		this(Sexe.Male);
 	}
 	
 	/*
