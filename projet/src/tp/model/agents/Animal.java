@@ -34,6 +34,7 @@ public class Animal {
 		this.coord=new Point(coord);
 	}
 	
+
 	public Animal(Sexe sexe) {
 		//TODO
 		/* crée un animal avec le sexe passé en paramètre, à la position (0;0), d'âge 0 et lui attribue un id unique
@@ -56,12 +57,34 @@ public class Animal {
 	 *  Accesseurs et mutateurs
 	 */
 	//TODO
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		if (this.age < age) {
+			this.age = age;
+		}
+	}
 	
+	public int getId() {
+		return id;
+	}
+
+	public Sexe getSexe() {
+		return sexe;
+	}
+	
+
 	
 	/*
 	 * Redéfinitions de méthodes d'object
 	 */
 	//TODO
+	@Override
+	public String toString() {
+		return String.format("%s %d(%d;%d)", getClass().getName(), this.id, this.coord.x, this.coord.y);
+	}
 	
 
 	/* 
@@ -72,11 +95,17 @@ public class Animal {
 
 	public void seDeplacer() {
 		//TODO utiliser Math.random() pour choisir une direction de déplacement
+		int dx = (int) (2 * Math.random() - 1);
+		int dy = (int) (2 * Math.random() - 1);
+		
+		this.coord.x += dx;
+		this.coord.y += dy;
 	}
 	
 	public void vieillir() {
 		//TODO fait vieillir l'animal d'une unité de temps
 		//une bonne manière de faire, une moins bonne...
+		this.age += 1;
 	}
 	
 	public void rencontrer(Animal a) {
@@ -90,7 +119,7 @@ public class Animal {
 	 */
 	private static int getUniqueId() {
 		//TODO 
-		return 0;
+		return currentId++;
 	}
 	
 	public static void main(String args[]) {
@@ -115,12 +144,12 @@ public class Animal {
 		System.out.println(d);
 		
 		System.out.println("*** Getters et setters **********");
-		/*
+		
 		System.out.println(d.getSexe());
 		Sexe ss = d.getSexe();
 		ss=Sexe.Male;
 		System.out.println(d.getSexe());
-		*/
+		
 		//les lignes suivantes devraient afficher la même chose....
 		/*
 		System.out.println(d.getCoord());
