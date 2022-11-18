@@ -13,4 +13,8 @@ manière qu'en C.
 1. Les Types construits sont "Points", "Etat", "Sexe" (coord, etat, sexe).
 2. Les Types primitifs sont des "int" (currentId, id, age).
 3. Les attributs de classe sont "currentId" qui est un attribut statique, tous les autres sont des attributs d'instances.
-4. Etat et Sexe sont
+4. Etat et Sexe sont des énumérations elles ont leurs propre fichier java. 
+5. L'objet Etat n'est pas primitif si on ne l'initialise pas, il prendra la valeur déjà présente dans la mémoire.
+6. Onillustre ici le pilier de l'Abstraction. On déclare les différentes variables sans les utiliser.
+### 4.1.5 Les constructeurs
+
