@@ -24,4 +24,7 @@ Attributs d'instance: `Point, Etat, Sexe, id, age`
 1. `this` dégisne l'instance en cours de création
 2. Un constructeur peut servir d'autre constructeur en utilisant la syntaxe `this(params)`.
 3. On peut créer un Animal d'âge 25
+4.
+
+### 4.1.6 
  
