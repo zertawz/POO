@@ -1,42 +1,31 @@
 package tp.model.agents;
 
 import java.awt.Point;
+import tp.model.comportements.Hebergeur;
 
 /**
  * Cette classe modélise un Animal dans la simulation
  * @author bruno
  *
  */
-public class Animal {
-	/* attributs de classe */
-	private static int currentId = 0;
+public abstract class Animal extends Agent {
 	
-	/* attributs d'instance*/
-	/** identifiant unique de l'animal*/
-	private int id;
-	/** age en unité de temps*/
-	private int age;
-	/** position sur la carte*/
-	private Point coord;
-	/** état de santé de l'animal */
-	private Etat etat=Etat.Normal;
-	private Sexe sexe;
+	// ===================== ATTRIBUTES ===========================
 	
-	/* 
-	 * constructeurs 
-	 */
+	//--------- INSTANCE --------------
+	protected boolean isHungry = false;
+	protected Etat etat = Etat.Normal;
+	protected Sexe sexe;
+	protected int age = 0;
+	
+	// ===================== CONSTRUCTOR ===========================
 	
 	public Animal(Sexe sexe, Point coord) {
-		age = 0;
-		id = Animal.getUniqueId();
-		this.sexe=sexe;
-		//this.coord=coord;
-		this.coord=new Point(coord);
+		super(coord);
+		this.sexe = sexe;
 	}
-	
 
 	public Animal(Sexe sexe) {
-		//TODO
 		/* crée un animal avec le sexe passé en paramètre, à la position (0;0), d'âge 0 et lui attribue un id unique
 		 * une bonne manière de faire 
 		 * en utilisant ce qui existe déjà, une moins bonne
@@ -45,7 +34,6 @@ public class Animal {
 	}
 	
 	public Animal() {
-		//TODO
 		/* crée un animal de sexe femelle, à la position (0;0), d'âge 0 et lui attribue un id unique
 		 * une bonne manière de faire 
 		 * en utilisant ce qui existe déjà, une moins bonne
@@ -53,48 +41,67 @@ public class Animal {
 		this(Sexe.Male);
 	}
 	
-	/*
-	 *  Accesseurs et mutateurs
-	 */
-	//TODO
+	// ================= GETTER SETTER ====================
+	
+	// ------------------------------------
 	public int getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
+	protected void setAge(int age) {
 		if (this.age < age) {
 			this.age = age;
 		}
 	}
 	
-	public int getId() {
-		return id;
+	// ------------------------------------
+	protected Etat getEtat() {
+		return this.etat;
 	}
-
+	
+	protected void setEtat(Etat etat) {
+		this.etat = etat;
+	}
+	
+	//-------------------------------------
 	public Sexe getSexe() {
 		return sexe;
 	}
 	
-
+	// ===================== OVERRIDE ===========================
 	
-	/*
-	 * Redéfinitions de méthodes d'object
-	 */
-	//TODO
 	@Override
-	public String toString() {
-		return String.format("%s %d(%d;%d)", getClass().getName(), this.id, this.coord.x, this.coord.y);
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Animal other = (Animal) obj;
+		if (age != other.age)
+			return false;
+		if (etat != other.etat)
+			return false;
+		if (sexe != other.sexe)
+			return false;
+		return true;
 	}
 	
-
-	/* 
-	 * comportements d'instance
-	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + age;
+		result = prime * result + ((etat == null) ? 0 : etat.hashCode());
+		result = prime * result + ((sexe == null) ? 0 : sexe.hashCode());
+		return result;
+	}
 	
-	
+	// ===================== METHODS ===========================
 
 	public void seDeplacer() {
-		//TODO utiliser Math.random() pour choisir une direction de déplacement
+		//utiliser Math.random() pour choisir une direction de déplacement
 		int dx = (int) (2 * Math.random() - 1);
 		int dy = (int) (2 * Math.random() - 1);
 		
@@ -103,82 +110,27 @@ public class Animal {
 	}
 	
 	public void vieillir() {
-		//TODO fait vieillir l'animal d'une unité de temps
+		//Fait vieillir l'animal d'une unité de temps
 		//une bonne manière de faire, une moins bonne...
 		this.age += 1;
 	}
 	
-	public void rencontrer(Animal a) {
-		//TODO
-	}
-	
-	/* comportements de classe */ 
-	/**
-	 * Renvoie un identifiant unique non encore utilisé
-	 * @return un identifiant entier unique d'animal
-	 */
-	private static int getUniqueId() {
-		//TODO 
-		return currentId++;
-	}
-	
-	public static void main(String args[]) {
-		//tests unitaires de la classe Animal
-		//TODO décommentez les lignes pour approfondir le test unitaire
-		//complétez la méthode pour tester les nouvelles fonctionnalités que vous allez implémenter
-		Animal a = new Animal();
-		Animal b = new Animal(Sexe.Male);
-		//Animal c = new Animal(Sexe.Assexue);
-		Animal d = new Animal(Sexe.Femelle,new Point(25,30));
-		Animal e = new Animal(Sexe.Femelle,new Point(25,30));
-		
-		/*
-		 * les lignes suivantes doivent afficher à terme: NomDeLaClasse n° id_animal(sexe, (position x; position y)).
-		 * ex: 28 (FEMELLE, (25;30))
-		 */
-		System.out.println("*** Animaux créés: **********");
-		System.out.println(a);
-		System.out.println(a.toString());
-		System.out.println(b);
-		//System.out.println(c);
-		System.out.println(d);
-		
-		System.out.println("*** Getters et setters **********");
-		
-		System.out.println(d.getSexe());
-		Sexe ss = d.getSexe();
-		ss=Sexe.Male;
-		System.out.println(d.getSexe());
-		
-		//les lignes suivantes devraient afficher la même chose....
-		/*
-		System.out.println(d.getCoord());
-		Point pt = d.getCoord();
-		pt.x=50;
-		System.out.println(d.getCoord());
-		*/
-		
-		//TODO ajoutez vos propres tests de getters et setters
-		
-		//TODO test vieillir
-		
-		//TODO test seDeplacer
-		
-		//TODO test id
-		/*
-		System.out.println(a.getId());
-		System.out.println(b.getId());
-		*/
-		
-		/*
-		 * Test comparaison
-		 */
-		/*
-		System.out.println(d==e);
-		System.out.println(d.equals(e));
-		System.out.println("Bonjour"=="Bonjour");
-		System.out.println("Bonjour".equals("Bonjour"));
-		*/
-	}
 
+	public void takeDamage() {		
+	    Etat[] states = Etat.values();
+	    int i = 0;
+	    for (; states[i] != this.etat; i++);
+	    i = Math.min(i+1, states.length);
+	    
+	    this.etat =  states[i];
+	}
+	
+	public void healOneState() {		
+	    Etat[] states = Etat.values();
+	    int i = 0;
+	    for (; states[i] != this.etat; i++);
+	    i = Math.max(i-1, 0);
+	    
+	    this.etat =  states[i];
+	}
 }
