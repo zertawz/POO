@@ -1,5 +1,5 @@
 package tp.model.agents;
 
 public enum Sexe {
-	Male,Femelle
+	Male,Femelle,Asexue
 }

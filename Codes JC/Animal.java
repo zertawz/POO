@@ -40,6 +40,9 @@ public class Animal {
 		 * une bonne manière de faire 
 		 * en utilisant ce qui existe déjà, une moins bonne
 		 */
+		 //On crée une position
+
+		 this(sexe,)
 	}
 	
 	public Animal() {
