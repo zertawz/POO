@@ -94,6 +94,7 @@ public abstract class Animal extends Agent implements Deplacable {
 	 * (non-Javadoc)
 	 * @see complet.model.agents.Agent#toString()
 	 */
+	
 	public String toString() {
 		//bien penser à réutiliser l'existant de Agent avec le super.toString()
 		return super.toString()+", "+sexe;
@@ -158,6 +159,10 @@ public abstract class Animal extends Agent implements Deplacable {
 		/*
 		 * TODO 3 lignes pas plus!
 		 */
+		
+		LinkedList<Etat> liste = new LinkedList<Etat>(Arrays.asList(Etat.values()));
+		ListIterator<Etat> it = liste.listIterator(liste.indexOf(etat));
+		if(it.hasPrevious()) {etat = it.previous();}
 		
 	}
 

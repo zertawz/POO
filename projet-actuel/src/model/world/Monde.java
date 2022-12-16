@@ -56,15 +56,20 @@ public class Monde {
 		Ruche r1 =new Ruche(new Point(10,50));
 		Ruche r2 =new Ruche(new Point(100,20));
 		Map<Integer,Agent> myMap = new LinkedHashMap<Integer,Agent>();
-	    myMap.put(20,new AbeilleDomestique(Sexe.Assexue,new Point(0,0),r1));
-	    myMap.put(40,new AbeilleDomestique(Sexe.Assexue,new Point(0,0),r2));
-	    myMap.put(50,new AbeilleSolitaire(Sexe.Assexue,new Point(0,0)));
+	    myMap.put(20,new AbeilleDomestique(Sexe.Assexue,new Point(10,20),r1));
+	    myMap.put(40,new AbeilleDomestique(Sexe.Assexue,new Point(5,10),r2));
+	    myMap.put(50,new AbeilleSolitaire(Sexe.Assexue,new Point(10,10)));
 	    myMap.put(55,new FrelonEuropeen(Sexe.Assexue,new Point(0,0)));
 	    myMap.put(60,new FrelonAsiatique(Sexe.Assexue,new Point(0,0)));
 	    myMap.put(70,new Varroa(Sexe.Assexue,new Point(0,0)));
 	    myMap.put(80,new Arbre(new Point(0,0),1.0));
 	    myMap.put(85,new Arbre(new Point(0,0),2.0));
 	    myMap.put(100,new Fleur(new Point(0,0)));
+	    
+	    System.out.println("-".repeat(30));
+	    System.out.println(r1);
+	    System.out.println(r2);
+	    
 	    return myMap;
 	}
 	
@@ -110,7 +115,7 @@ public class Monde {
 			//partie 2
 			//ts.add((Agent)tirage(alea).clone());
 			//partie 1
-			ts.add(copieAgent(tirage(alea)));
+			ts.add(this.copieAgent(tirage(alea)));
 		}
 		return ts;
 	}

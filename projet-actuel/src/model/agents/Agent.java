@@ -13,7 +13,7 @@ import model.comportements.Deplacable;
  * @author bruno
  *
  */
-public abstract class Agent {//implements Cloneable, Comparable<Agent>
+public abstract class Agent implements Cloneable, Comparable<Agent> {
 	
 	/* attributs de classe */
 	private static int currentId = 0;
@@ -144,7 +144,7 @@ public abstract class Agent {//implements Cloneable, Comparable<Agent>
 	@Override
 	public String toString() {
 		//NomDeLaClasse n° id_agent (position x; position y)
-		return getClass().getSimpleName() + " " + id + " (" + getCoord() + ")";
+		return getClass().getSimpleName() + " " + id + " (" + (int) getCoord().getX() +";"+ (int) getCoord().getY() + ")";
 	}
 	
 	
@@ -178,6 +178,10 @@ public abstract class Agent {//implements Cloneable, Comparable<Agent>
 		if (id != other.id)
 			return false;
 		return true;
+	}
+	
+	public int compareTo(Agent a) {
+		return this.id - a.getId();
 	}
 
 	/* comportements de classe */ 

@@ -9,9 +9,7 @@ public class AbeilleDomestique extends Abeille {
 
 	public AbeilleDomestique(Sexe s, Point p, Ruche r) {
 		super(s, p);
-		/*
-		 * TODO
-		 */
+		r.accueillir(this);
 	}
 	
 }

@@ -13,7 +13,7 @@ public class Ruche extends Decor implements Hebergeur{
 	/**
 	 * Liste des abeilles de la ruche 
 	 */
-	//private TODO population;
+	private static HashSet<AbeilleDomestique> population;
 	/**
 	 * constante taille maximale de la ruche
 	 */
@@ -21,15 +21,15 @@ public class Ruche extends Decor implements Hebergeur{
 	
 	public Ruche(Point p) {
 		super(p);
-		//population = new ... TODO;
+		population = new HashSet<AbeilleDomestique>();
 	}
 
 	@Override
 	public boolean peutAccueillir(Animal a) {
-		return a instanceof AbeilleDomestique; /*&& 
-				&& //population ok
-				//l'abeille n'appartient pas déjà à la ruche
-				 */
+		return a instanceof AbeilleDomestique 
+				&& population.size() < populationMax //population ok
+				&& !population.contains(a); //l'abeille n'appartient pas déjà à la ruche
+				 
 	}
 
 	@Override
@@ -39,14 +39,28 @@ public class Ruche extends Decor implements Hebergeur{
 			/* Ne pas faire ça ici: c'est à l'animal de mettre à jour ses attributs
 			 * a.setHebergeur(this);
 			 */
-			//TODO ajouter a à la population
+			population.add((AbeilleDomestique) a);
 			ret=true;
 		}
 		return ret;
 	}
 	
 	public String toString() {
-		String ret ="TODO";
+		String ret = getClass().getSimpleName() 
+				+ " (" 
+				+ (int) getCoord().getX() 
+				+ ";"
+				+ (int) getCoord().getY() 
+				+ ") "
+				+ "population " 
+				+ population.size() 
+				+ " abeilles"
+				+ "\n";
+		
+		for (AbeilleDomestique a : population ) {
+			ret += "\t*" + a + "\n";
+		}
+		
 		/*
 		 * "\t" code une tabulation dans une chaine de caractères
 		 * "\n" un saut de ligne 
