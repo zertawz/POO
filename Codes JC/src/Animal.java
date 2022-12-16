@@ -1,5 +1,3 @@
-package tp.model.agents;
-
 import java.awt.Point;
 
 /**
@@ -41,8 +39,7 @@ public class Animal {
 		 * en utilisant ce qui existe déjà, une moins bonne
 		 */
 		 //On crée une position
-
-		 this(sexe,)
+		 this(sexe, new Point(0,0));
 	}
 	
 	public Animal() {
@@ -51,6 +48,7 @@ public class Animal {
 		 * une bonne manière de faire 
 		 * en utilisant ce qui existe déjà, une moins bonne
 		 */
+		 this(Sexe.Femelle);
 	}
 	
 	/*

@@ -17,4 +17,8 @@ manière qu'en C.
 5. L'objet Etat n'est pas primitif si on ne l'initialise pas, il prendra la valeur déjà présente dans la mémoire.
 6. Onillustre ici le pilier de l'Abstraction. On déclare les différentes variables sans les utiliser.
 ### 4.1.5 Les constructeurs
+1. C'est le mot "this"
+2. Oui c'est ce que l'on a utilisé pour Animals.
+3. Oui on le peut mais ce n'est pas très réaliste.
+4. Oui on le peut désormais, le code va aller vers le constructeur adéquat et il va lui attribuer les coordonées (0,0)
 
