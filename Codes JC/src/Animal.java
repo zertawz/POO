@@ -55,6 +55,8 @@ public class Animal {
 	 *  Accesseurs et mutateurs
 	 */
 	//TODO
+	//getter de l'attribut age
+	//setter de l'attribut age
 	
 	
 	/*
@@ -62,13 +64,11 @@ public class Animal {
 	 */
 	//TODO
 	
-
 	/* 
 	 * comportements d'instance
 	 */
 	
 	
-
 	public void seDeplacer() {
 		//TODO utiliser Math.random() pour choisir une direction de déplacement
 	}

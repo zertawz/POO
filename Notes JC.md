@@ -21,4 +21,6 @@ manière qu'en C.
 2. Oui c'est ce que l'on a utilisé pour Animals.
 3. Oui on le peut mais ce n'est pas très réaliste.
 4. Oui on le peut désormais, le code va aller vers le constructeur adéquat et il va lui attribuer les coordonées (0,0)
+### 4.1.6 Création des accesseurs et des mutateurs
+1. 
 
