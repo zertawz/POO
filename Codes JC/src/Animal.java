@@ -55,10 +55,28 @@ public class Animal {
 	 *  Accesseurs et mutateurs
 	 */
 	//TODO
-	//getter de l'attribut age
-	//setter de l'attribut age
-	
-	
+	//getter age
+	public int getAge(){
+		return this.age;
+	}
+	//setter age
+	public void setAge(int nouvelAge){
+		if (nouvelAge>=age){
+			this.age=nouvelAge;
+		}
+	}
+	//getter de id
+	public int getId(){
+		return this.id;
+	}
+	//getter de sexe
+	public Sexe getSexe(){
+		return this.sexe;
+	}
+	//getter de coord
+	public coord getCoord(){
+		return this.coord
+	}
 	/*
 	 * Redéfinitions de méthodes d'object
 	 */
@@ -114,19 +132,17 @@ public class Animal {
 		System.out.println(d);
 		
 		System.out.println("*** Getters et setters **********");
-		/*
+		
 		System.out.println(d.getSexe());
 		Sexe ss = d.getSexe();
 		ss=Sexe.Male;
 		System.out.println(d.getSexe());
-		*/
+		
 		//les lignes suivantes devraient afficher la même chose....
-		/*
 		System.out.println(d.getCoord());
 		Point pt = d.getCoord();
 		pt.x=50;
 		System.out.println(d.getCoord());
-		*/
 		
 		//TODO ajoutez vos propres tests de getters et setters
 		
@@ -150,5 +166,4 @@ public class Animal {
 		System.out.println("Bonjour".equals("Bonjour"));
 		*/
 	}
-
 }

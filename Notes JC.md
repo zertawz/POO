@@ -22,5 +22,9 @@ manière qu'en C.
 3. Oui on le peut mais ce n'est pas très réaliste.
 4. Oui on le peut désormais, le code va aller vers le constructeur adéquat et il va lui attribuer les coordonées (0,0)
 ### 4.1.6 Création des accesseurs et des mutateurs
+Les Mutateurs (getters et setters) sont des méthodes qui respectivement permettent de lire ou d'écrire un valeur. La plupart du temps leurs accessibilité est public.
+Ils permettent de faire de la saisie protégée ou de rajouter des conditions pour la modification d'une variable
+Ils permettent également de structurer mieux le code et d'éviter que on place tous les attributs en public. La bonne pratique est de mettre les attributs en privés et intéragir avec par le biai des mutateurs.
+La bonne pratique est de dire que seules le méthodes doivent permettre aux objets d'intéragir (code plus structuré et plus logique).
 1. 
 
