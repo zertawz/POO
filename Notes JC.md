@@ -26,5 +26,7 @@ Les Mutateurs (getters et setters) sont des méthodes qui respectivement permett
 Ils permettent de faire de la saisie protégée ou de rajouter des conditions pour la modification d'une variable
 Ils permettent également de structurer mieux le code et d'éviter que on place tous les attributs en public. La bonne pratique est de mettre les attributs en privés et intéragir avec par le biai des mutateurs.
 La bonne pratique est de dire que seules le méthodes doivent permettre aux objets d'intéragir (code plus structuré et plus logique).
-1. 
-
+1. Les mutateurs sont crées.
+2. Les mutateurs fonctionnent 
+3. Les énumérations définissent quels sont les différentes possibilités, ce n'est pas le cas d'un objet "classique" 
+4. Les tests se sont avérés concluents

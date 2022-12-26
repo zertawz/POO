@@ -25,36 +25,23 @@ public class Animal {
 	 */
 	
 	public Animal(Sexe sexe, Point coord) {
-		age = 0;
+		age = 12;
 		id = Animal.getUniqueId();
 		this.sexe=sexe;
-		//this.coord=coord;
 		this.coord=new Point(coord);
 	}
 	
 	public Animal(Sexe sexe) {
-		//TODO
-		/* crée un animal avec le sexe passé en paramètre, à la position (0;0), d'âge 0 et lui attribue un id unique
-		 * une bonne manière de faire 
-		 * en utilisant ce qui existe déjà, une moins bonne
-		 */
-		 //On crée une position
 		 this(sexe, new Point(0,0));
 	}
 	
 	public Animal() {
-		//TODO
-		/* crée un animal de sexe femelle, à la position (0;0), d'âge 0 et lui attribue un id unique
-		 * une bonne manière de faire 
-		 * en utilisant ce qui existe déjà, une moins bonne
-		 */
 		 this(Sexe.Femelle);
 	}
 	
 	/*
 	 *  Accesseurs et mutateurs
 	 */
-	//TODO
 	//getter age
 	public int getAge(){
 		return this.age;
@@ -74,8 +61,8 @@ public class Animal {
 		return this.sexe;
 	}
 	//getter de coord
-	public coord getCoord(){
-		return this.coord
+	public Point getCoord(){
+		return this.coord;
 	}
 	/*
 	 * Redéfinitions de méthodes d'object
@@ -116,7 +103,7 @@ public class Animal {
 		//complétez la méthode pour tester les nouvelles fonctionnalités que vous allez implémenter
 		Animal a = new Animal();
 		Animal b = new Animal(Sexe.Male);
-		//Animal c = new Animal(Sexe.Assexue);
+		Animal c = new Animal(Sexe.Assexue);
 		Animal d = new Animal(Sexe.Femelle,new Point(25,30));
 		Animal e = new Animal(Sexe.Femelle,new Point(25,30));
 		
@@ -128,14 +115,18 @@ public class Animal {
 		System.out.println(a);
 		System.out.println(a.toString());
 		System.out.println(b);
-		//System.out.println(c);
+		System.out.println(c);
 		System.out.println(d);
 		
 		System.out.println("*** Getters et setters **********");
 		
 		System.out.println(d.getSexe());
 		Sexe ss = d.getSexe();
+		//pas compris cette ligne et ce test
 		ss=Sexe.Male;
+		System.out.println(d.getSexe());
+		//test perso
+		d.Sexe=d.Sexe.Male;
 		System.out.println(d.getSexe());
 		
 		//les lignes suivantes devraient afficher la même chose....
@@ -145,6 +136,17 @@ public class Animal {
 		System.out.println(d.getCoord());
 		
 		//TODO ajoutez vos propres tests de getters et setters
+		//test de l'age
+		System.out.println("Test perso XD");
+		//les deux fonctionnent car on test depuis le main de cette classe.
+		System.out.println(a.age);
+		System.out.println(a.getAge());
+		
+		a.age=5;
+		System.out.println(a.getAge());
+		//devrait empêcher de passer en dessous de 5
+		a.setAge(2);
+		System.out.println(a.getAge());
 		
 		//TODO test vieillir
 		
