@@ -79,8 +79,10 @@ public class Animal {
 	}
 	
 	public void vieillir() {
-		//TODO fait vieillir l'animal d'une unité de temps
-		//une bonne manière de faire, une moins bonne...
+		int a;
+		a = getAge();
+		a += 1;
+		setAge(a);
 	}
 	
 	public void rencontrer(Animal a) {
@@ -94,7 +96,7 @@ public class Animal {
 	 */
 	private static int getUniqueId() {
 		//TODO 
-		return 0;
+		return 69;
 	}
 	
 	public static void main(String args[]) {
@@ -119,36 +121,47 @@ public class Animal {
 		System.out.println(d);
 		
 		System.out.println("*** Getters et setters **********");
-		
 		System.out.println(d.getSexe());
 		Sexe ss = d.getSexe();
 		//pas compris cette ligne et ce test
 		ss=Sexe.Male;
 		System.out.println(d.getSexe());
 		//test perso
-		d.Sexe=d.Sexe.Male;
+		d.sexe=Sexe.Male;
 		System.out.println(d.getSexe());
-		
 		//les lignes suivantes devraient afficher la même chose....
 		System.out.println(d.getCoord());
 		Point pt = d.getCoord();
 		pt.x=50;
 		System.out.println(d.getCoord());
 		
-		//TODO ajoutez vos propres tests de getters et setters
-		//test de l'age
 		System.out.println("Test perso XD");
+		//test age
 		//les deux fonctionnent car on test depuis le main de cette classe.
 		System.out.println(a.age);
 		System.out.println(a.getAge());
-		
 		a.age=5;
 		System.out.println(a.getAge());
 		//devrait empêcher de passer en dessous de 5
 		a.setAge(2);
 		System.out.println(a.getAge());
+		//On met a 12 sans passer par le setter (On est dans la meme classe)
+		a.age=12;
+		System.out.println(a.getAge());
+		//test id 
+		//Les deux fonctionnent (On est dans la meme classe)
+		System.out.println(a.id);
+		System.out.println(a.getId());
+		//test coords 
+		System.out.println(a.coord);
+		System.out.println(a.getCoord());
 		
-		//TODO test vieillir
+		System.out.println("Test méthode vieillir");
+		System.out.println("Avant de vieillir l'age de l'animal \"a\" est: " + a.getAge());
+		a.vieillir();
+		System.out.println("Il a vieilli, son age est de: " + a.getAge());
+		
+		
 		
 		//TODO test seDeplacer
 		
