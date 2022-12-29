@@ -76,6 +76,33 @@ public class Animal {
 	
 	public void seDeplacer() {
 		//TODO utiliser Math.random() pour choisir une direction de déplacement
+		//on génère un déplacement aléatoire en x et en y
+		double dx = Math.round((Math.random()*3)-1.5);
+		double dy = Math.round((Math.random()*3)-1.5);
+		//On traite les cas extremes ou on peut se retrouver avec un 2
+		if (dx==2 || dy==2){
+			if (dx==2){
+				dx=1;
+			}
+			else{
+				dy=1;
+			}
+		}
+		if (dx==-2 || dy==-2){
+			if (dx==-2){
+				dx=-1;
+			}
+			else{
+				dy=-1;
+			}
+		}
+		//affichage simple
+		System.out.println("Les déplacements sont: " + dx + " et " + dy);
+		//On récup les coordonnées
+		Point pointActuel = getCoord();
+		//On modifie les coordonnées
+		pointActuel.x += dx;
+		pointActuel.y += dy;
 	}
 	
 	public void vieillir() {
@@ -161,9 +188,10 @@ public class Animal {
 		a.vieillir();
 		System.out.println("Il a vieilli, son age est de: " + a.getAge());
 		
-		
-		
-		//TODO test seDeplacer
+		System.out.println("Test méthode se déplacer");
+		System.out.println("La position avant est:" + a.getCoord());
+		a.seDeplacer();
+		System.out.println("La position après est:" + a.getCoord());
 		
 		//TODO test id
 		/*
