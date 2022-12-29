@@ -12,15 +12,15 @@ manière qu'en C.
 - etc
 
 ## 4.1.4 Attributs
-1. Les Types construits sont "Points", "Etat", "Sexe" (coord, etat, sexe).
-2. Les Types primitifs sont des "int" (currentId, id, age).
-3. Les attributs de classe sont "currentId" qui est un attribut statique, tous les autres sont des attributs d'instances.
+1. Les Types construits sont `Points`, `Etat`, `Sexe` (coord, etat, sexe).
+2. Les Types primitifs sont des `int` (currentId, id, age).
+3. Les attributs de classe sont `currentId` qui est un attribut statique, tous les autres sont des attributs d'instances.
 4. Etat et Sexe sont des énumérations elles ont leurs propre fichier java. 
 5. L'objet Etat n'est pas primitif si on ne l'initialise pas, il prendra la valeur déjà présente dans la mémoire.
 6. Onillustre ici le pilier de l'Abstraction. On déclare les différentes variables sans les utiliser.
 
 ## 4.1.5 Les constructeurs
-1. C'est le mot "this"
+1. C'est le mot `this`
 2. Oui c'est ce que l'on a utilisé pour Animals.
 3. Oui on le peut mais ce n'est pas très réaliste.
 4. Oui on le peut désormais, le code va aller vers le constructeur adéquat et il va lui attribuer les coordonées (0,0)
@@ -41,3 +41,10 @@ La bonne pratique est de dire que seules le méthodes doivent permettre aux obje
 ### 4.1.7.1 La méthode vieillir
 1. La bonne manière semble celle où on utilise les mutateurs codés précédement
 2. J'ai changé d'avis les mutateur ont une utilité à être privés. En effet, on peut imaginer que l'age ne puisse être changé que par des éléments de la classe animal, le rôle du mutateur sera alors simplement d'ajouter une contrainte à ce changement d'attribut. En effet le fait de faire un mutateur pour changer proprement l'age dans notre classe nous permet d'éviter qu'un élément se mette à rajeunir. 
+### 4.1.7.2 La méthode seDeplacer
+1. Je ne sais pas trop, je dirais "minimaliste".
+2. elle renvoit un `double`
+3. Le transtypage primitif (à vérifier) est un processus dans lequel on change le type d'une variable quelconque pour le transformer en un type primitif par exemple un `int`.
+### 4.1.7.3 La méthode getUniqueID 
+1. Cette méthode est déclarée statique, cela signifie que cette méthode est liée à la classe et non à ses instances. Dans la pratique celà voudra dire que les objets seront incable d'utliser cette méthode (Incapable de se générer un ID)
+2.
