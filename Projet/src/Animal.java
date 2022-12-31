@@ -23,7 +23,6 @@ public class Animal {
 	/* 
 	 * constructeurs 
 	 */
-	
 	public Animal(Sexe sexe, Point coord) {
 		age = 12;
 		id = Animal.getUniqueId();
@@ -75,7 +74,6 @@ public class Animal {
 	
 	
 	public void seDeplacer() {
-		//TODO utiliser Math.random() pour choisir une direction de déplacement
 		//on génère un déplacement aléatoire en x et en y
 		double dx = Math.round((Math.random()*3)-1.5);
 		double dy = Math.round((Math.random()*3)-1.5);
@@ -122,14 +120,13 @@ public class Animal {
 	 * @return un identifiant entier unique d'animal
 	 */
 	private static int getUniqueId() {
-		//TODO 
-		return 69;
+		id++;
+		return id;
 	}
 	
 	public static void main(String args[]) {
-		//tests unitaires de la classe Animal
-		//TODO décommentez les lignes pour approfondir le test unitaire
-		//complétez la méthode pour tester les nouvelles fonctionnalités que vous allez implémenter
+		//definition d'une variable de classe
+/bin/bash: ligne 1: :w : commande introuvable
 		Animal a = new Animal();
 		Animal b = new Animal(Sexe.Male);
 		Animal c = new Animal(Sexe.Assexue);
@@ -193,11 +190,11 @@ public class Animal {
 		a.seDeplacer();
 		System.out.println("La position après est:" + a.getCoord());
 		
-		//TODO test id
-		/*
+		//test getUniqueID 
 		System.out.println(a.getId());
 		System.out.println(b.getId());
-		*/
+		System.out.println(c.getId());
+		System.out.println(d.getId());
 		
 		/*
 		 * Test comparaison
