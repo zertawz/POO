@@ -1,6 +1,5 @@
-# Questions
-
-
+# 4. Premier pas en objet: définition d'un modèle (une abstraction) d'Animal
+# 4.1 Prise en main 
 ## 4.1.2 Commentaires
 Les commentaires en java sont gérées de la même
 manière qu'en C.
@@ -47,4 +46,15 @@ La bonne pratique est de dire que seules le méthodes doivent permettre aux obje
 3. Le transtypage primitif (à vérifier) est un processus dans lequel on change le type d'une variable quelconque pour le transformer en un type primitif par exemple un `int`.
 ### 4.1.7.3 La méthode getUniqueID 
 1. Cette méthode est déclarée statique, cela signifie que cette méthode est liée à la classe et non à ses instances. Dans la pratique celà voudra dire que les objets seront incable d'utliser cette méthode (Incapable de se générer un ID)
+2. On va avoir besoin d'utiliser une variable de classe, elle sera défini avec le mot clef `static`.
+3. C'est fait.
+4. getUniqueId est placé en private car cette méthode n'a pas vocation a être utilisée par d'autres classes.
+5. Elle fonctionne.
+
+
+# 4.2 Spécialisation d'Animal par rapport à sa classe mère Object
+## 4.2.1 Redéfinition de comportements par défaut hérités d'Object
+### 4.2.1.1 Représentation d'un Animal sous forme de chaîne de caractère
+1. C'est la méthode toString(). Elle vient directement des fonctions implémentés dans java. Par défaut, elle retourne le nom de la classe et le hashcode de l'objet avec un @ pour séparer les deux parties.
 2.
+

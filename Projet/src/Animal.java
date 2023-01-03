@@ -120,13 +120,12 @@ public class Animal {
 	 * @return un identifiant entier unique d'animal
 	 */
 	private static int getUniqueId() {
-		id++;
-		return id;
+		currentId++;
+		return currentId;
 	}
 	
 	public static void main(String args[]) {
 		//definition d'une variable de classe
-/bin/bash: ligne 1: :w : commande introuvable
 		Animal a = new Animal();
 		Animal b = new Animal(Sexe.Male);
 		Animal c = new Animal(Sexe.Assexue);
