@@ -115,17 +115,17 @@ public class Animal {
 	}
 	
 	/* comportements de classe */ 
-	/**
-	 * Renvoie un identifiant unique non encore utilisé
-	 * @return un identifiant entier unique d'animal
-	 */
 	private static int getUniqueId() {
 		currentId++;
 		return currentId;
 	}
 	
+	@Override
+	public String toString(){
+		return getClass() + " n°" + getId() + "(" + getSexe() + ", " + getCoord() + ")";
+	}
+	
 	public static void main(String args[]) {
-		//definition d'une variable de classe
 		Animal a = new Animal();
 		Animal b = new Animal(Sexe.Male);
 		Animal c = new Animal(Sexe.Assexue);
@@ -136,14 +136,14 @@ public class Animal {
 		 * les lignes suivantes doivent afficher à terme: NomDeLaClasse n° id_animal(sexe, (position x; position y)).
 		 * ex: 28 (FEMELLE, (25;30))
 		 */
-		System.out.println("*** Animaux créés: **********");
+		System.out.println("*** Animaux créés: ***");
 		System.out.println(a);
 		System.out.println(a.toString());
 		System.out.println(b);
 		System.out.println(c);
 		System.out.println(d);
 		
-		System.out.println("*** Getters et setters **********");
+		System.out.println("*** Getters et setters ***");
 		System.out.println(d.getSexe());
 		Sexe ss = d.getSexe();
 		//pas compris cette ligne et ce test
@@ -183,7 +183,6 @@ public class Animal {
 		System.out.println("Avant de vieillir l'age de l'animal \"a\" est: " + a.getAge());
 		a.vieillir();
 		System.out.println("Il a vieilli, son age est de: " + a.getAge());
-		
 		System.out.println("Test méthode se déplacer");
 		System.out.println("La position avant est:" + a.getCoord());
 		a.seDeplacer();
