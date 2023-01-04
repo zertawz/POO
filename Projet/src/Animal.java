@@ -63,16 +63,10 @@ public class Animal {
 	public Point getCoord(){
 		return this.coord;
 	}
-	/*
-	 * Redéfinitions de méthodes d'object
-	 */
-	//TODO
-	
+
 	/* 
 	 * comportements d'instance
 	 */
-	
-	
 	public void seDeplacer() {
 		//on génère un déplacement aléatoire en x et en y
 		double dx = Math.round((Math.random()*3)-1.5);
@@ -125,15 +119,17 @@ public class Animal {
 		return getClass() + " n°" + getId() + "(" + getSexe() + ", " + getCoord() + ")";
 	}
 	
-	@Override
 	//Meme si les instances de Animal sont des objets le type objet n'a pas les méthodes utilisées pour les tests.
-	public boolean equals(Object o){
-		if(getAge()==(Animal)o.getAge() && getSexe()==o.getSexe() && etat==o.etat){
-			return true;
+	@Override
+	public boolean equals(Object obj){
+		//Si c'est une instance d'animal il faut la caster
+		if (obj instanceof Animal){
+			Animal o = (Animal) obj;
+			if(getAge()==o.getAge() && getSexe()==o.getSexe() && etat==o.etat){
+				return true;
+			}
 		}
-		else{
-			return false;
-		}
+		return false;
 	}
 	
 	public static void main(String args[]) {
@@ -210,6 +206,11 @@ public class Animal {
 		 */
 		System.out.println(a==a);
 		System.out.println(d==e);
+		System.out.println("Si la méthode equals a été défini correctement la ligne suivante devrait afficher true");
+		//J'enlève un test que j'ai fait par le passé
+		d.sexe=Sexe.Femelle;
+		System.out.println(d);
+		System.out.println(e);
 		System.out.println(d.equals(e));
 		System.out.println("Bonjour"=="Bonjour");
 		System.out.println("Bonjour".equals("Bonjour"));
