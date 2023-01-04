@@ -72,4 +72,4 @@ On note que `println()` permet seulement d'aller à la ligne après avoir affich
 7. Simplement en retournant 0 ou 1... (Je ne sais pas) 
 ### 4.2.1.2 Comparaison de deux instances d'Animal
 1. C'est fait.
-
+2. Visiblement ces deux manières de comparer les choses sont similaires `==` et `equals()` je pense néanmoins que l'on peut `@Override` la fonction pour faire un test de comparaison plus spécifique, tandis que pour le `==` ce n'est pas possible. Reste à comprendre le comportement par défaut de `equals()` c'est à dire celui de `==`. Je vais rajouter de quoi tester le `==`.

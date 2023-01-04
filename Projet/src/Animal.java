@@ -125,6 +125,17 @@ public class Animal {
 		return getClass() + " n°" + getId() + "(" + getSexe() + ", " + getCoord() + ")";
 	}
 	
+	@Override
+	//Meme si les instances de Animal sont des objets le type objet n'a pas les méthodes utilisées pour les tests.
+	public boolean equals(Object o){
+		if(getAge()==(Animal)o.getAge() && getSexe()==o.getSexe() && etat==o.etat){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	
 	public static void main(String args[]) {
 		Animal a = new Animal();
 		Animal b = new Animal(Sexe.Male);
@@ -197,11 +208,10 @@ public class Animal {
 		/*
 		 * Test comparaison
 		 */
-		/*
+		System.out.println(a==a);
 		System.out.println(d==e);
 		System.out.println(d.equals(e));
 		System.out.println("Bonjour"=="Bonjour");
 		System.out.println("Bonjour".equals("Bonjour"));
-		*/
 	}
 }
