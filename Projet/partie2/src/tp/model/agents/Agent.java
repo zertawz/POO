@@ -22,10 +22,11 @@ public class Agent {
 		this(new Point(0,0));
 	}
 	public Agent(Point coord){
+		id = getUniqueId();
 		this.coord=new Point(coord);
 		faim = false;
 	}
-
+	
 	/*
 	 *  Accesseurs et mutateurs
 	 */
@@ -43,13 +44,16 @@ public class Agent {
 	public int getId(){
 		return this.id;
 	}
-	//getter de sexe
-	public Sexe getSexe(){
-		return this.sexe;
-	}
 	//getter de coord
 	public Point getCoord(){
 		return this.coord;
+	}
+	//setter de coord
+	public void setCoord(int x, int y){
+		this.coord.setLocation(x,y);
+	}
+	public void setCoord(Point coord){
+		this.coord=coord;
 	}
 	
 	/* comportements de classe */ 

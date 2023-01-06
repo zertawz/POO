@@ -17,10 +17,9 @@ public class Animal extends Agent{
 	 */
 	public Animal(Sexe sexe, Point coord) {
 		super(coord);
-		age = 0;
-		id = Animal.getUniqueId();
+		setAge(0);
 		this.sexe=sexe;
-		this.coord=new Point(coord);
+		setCoord(coord);
 	}
 	
 	public Animal(Sexe sexe) {
@@ -29,6 +28,13 @@ public class Animal extends Agent{
 	
 	public Animal() {
 		 this(Sexe.Femelle);
+	}
+	/*
+	 *  Accesseurs et mutateurs
+	 */
+	//getter de sexe
+	public Sexe getSexe(){
+		return this.sexe;
 	}
 	
 	/* 
@@ -131,22 +137,17 @@ public class Animal extends Agent{
 		System.out.println("Test perso XD");
 		//test age
 		//les deux fonctionnent car on test depuis le main de cette classe.
-		System.out.println(a.age);
 		System.out.println(a.getAge());
-		a.age=5;
 		System.out.println(a.getAge());
 		//devrait empêcher de passer en dessous de 5
 		a.setAge(2);
 		System.out.println(a.getAge());
 		//On met a 12 sans passer par le setter (On est dans la meme classe)
-		a.age=12;
 		System.out.println(a.getAge());
 		//test id 
 		//Les deux fonctionnent (On est dans la meme classe)
-		System.out.println(a.id);
 		System.out.println(a.getId());
 		//test coords 
-		System.out.println(a.coord);
 		System.out.println(a.getCoord());
 		
 		System.out.println("Test méthode vieillir");

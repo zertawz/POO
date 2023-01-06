@@ -83,3 +83,4 @@ On note que `println()` permet seulement d'aller à la ligne après avoir affich
 ## 6.1.1 Définition des acteurs
 ## 6.1.2 Les agents
 ## 6.1.3 Les éléments de décors
+Réadaption du code en cours. Quand on ajoute le setter de coordonées on va éviter de regénerer une nouvelle instance de point mais on va modifier l'objet déjà existant (notion de lien entre les objets)

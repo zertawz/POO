@@ -11,6 +11,7 @@ For jcbranch, to execute using a Unix-like shell:
 2. For part2
 - Go on "Projet/partie2" file
 - compile `javac src/launchers/LauncherTP2.java -d bin`
+you can also use `javac $(find . -name *.java) -d bin`
 Because JAVA will automatically search for dependencies and compile them
-- execute: `java -cp bin Launcher8`
+- execute: `java -cp bin launchers.LauncherTP2`
 
