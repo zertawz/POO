@@ -73,3 +73,13 @@ On note que `println()` permet seulement d'aller à la ligne après avoir affich
 ### 4.2.1.2 Comparaison de deux instances d'Animal
 1. C'est fait.
 2. Visiblement ces deux manières de comparer les choses sont similaires `==` et `equals()` je pense néanmoins que l'on peut `@Override` la fonction pour faire un test de comparaison plus spécifique, tandis que pour le `==` ce n'est pas possible. Reste à comprendre le comportement par défaut de `equals()` c'est à dire celui de `==`. Je vais rajouter de quoi tester le `==`.
+3. Je l'ai faite à la main et j'ai appris à cast un objet ducoup
+4. Maintenant quand on utilise `equals()` il va comparer les attributs et si les instances ont le même `sexe``age``etat` alors ils sont considérés comme égaux.
+5. Deux quand on applique la méthode `equals()` a un objet de type `String` il reprends le comportement par défaut (On a overide seulement la méthode `equals()` de Animal celle de `Object` ne peut pas être overide car `Object` est une superclass) On doit alors s'attendre à un false quand on compare deux chaine de caractère similaire. Sauf qu'en java deux chaine de caractère similaire sont souvent stocké à la mếme adresse mémoire (qu'un seul enregistrement mémoire pour 2 variables) donc c'est `True` qui est renvoyé.
+
+
+# 6. Héritage et polymorphisme
+# 6.1 Nouvelles contraites
+## 6.1.1 Définition des acteurs
+## 6.1.2 Les agents
+## 6.1.3 Les éléments de décors

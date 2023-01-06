@@ -121,6 +121,7 @@ public class Animal {
 	
 	//Meme si les instances de Animal sont des objets le type objet n'a pas les méthodes utilisées pour les tests.
 	@Override
+	//On override seulement la méthode equals() de animal et de ces sous classes (pas celle de object())
 	public boolean equals(Object obj){
 		//Si c'est une instance d'animal il faut la caster
 		if (obj instanceof Animal){
@@ -213,6 +214,9 @@ public class Animal {
 		System.out.println(e);
 		System.out.println(d.equals(e));
 		System.out.println("Bonjour"=="Bonjour");
+		Object toto = new Object();
+		Object tata = new Object();
+		System.out.println(toto.equals(tata));
 		System.out.println("Bonjour".equals("Bonjour"));
 	}
 }
