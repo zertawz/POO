@@ -3,6 +3,7 @@ package model.agents;
 import java.awt.Point;
 
 import model.comportements.Deplacable;
+import model.world.Time;
 
 /**
  * Cette classe modélise un Agent, c'est à dire un élément du monde qui est vivant ET 
@@ -13,8 +14,9 @@ import model.comportements.Deplacable;
  * @author bruno
  *
  */
-public abstract class Agent implements Cloneable, Comparable<Agent> {
-	
+public abstract class Agent extends Time implements Cloneable, Comparable<Agent> {
+	//========================= Attributes =========================
+
 	/* attributs de classe */
 	private static int currentId = 0;
 	
@@ -32,28 +34,30 @@ public abstract class Agent implements Cloneable, Comparable<Agent> {
 	 */
 	protected boolean faim = false;
 	
-	/**
-	 * crée un agent d'age 0, avec un id unique à la position coord
-	 * @param coord position de l'agent
-	 */
-	public Agent(Point coord) {
-		age = 0;
-		id = Agent.getUniqueId();
-		//à commenter partie 3 
-		this.coord=coord;
-		//à décommenter partie 3 
-		//this.coord=new PointPositif(coord);
-	}
-	/**
-	 * age 0, id unique et position (0,0)
-	 */
-	public Agent() {
-		this(new Point(0,0));
-	}
+	//======================== Constructors ========================
+
+		/**
+		 * crée un agent d'age 0, avec un id unique à la position coord
+		 * @param coord position de l'agent
+		 */
+
+		public Agent(Point coord) {
+			age = 0;
+			id = Agent.getUniqueId();
+			//à commenter partie 3 
+			this.coord=coord;
+			//à décommenter partie 3 
+			//this.coord=new PointPositif(coord);
+		}
+		/**
+		 * age 0, id unique et position (0,0)
+		 */
+		public Agent() {
+			this(new Point(0,0));
+		}
 	
-	/* ***************************
-	 * Accesseurs et mutateurs
-	 */
+	//====================== Getters / Setters =====================
+
 	/**
 	 * renvoie l'identifiant (unique) de l'agent
 	 * @return
@@ -72,7 +76,6 @@ public abstract class Agent implements Cloneable, Comparable<Agent> {
 	 * l'objet renvoyé
 	 * @return un clone de {@link #coord}
 	 */
-	/* partie 1 */
 	public Point getCoord() {
 		return new Point(coord);
 	}
@@ -113,41 +116,7 @@ public abstract class Agent implements Cloneable, Comparable<Agent> {
 		*/
 	}
 	
-	/**
-	 * fait vieillir l'agent d'une unité de temps
-	 */
-	public void vieillir() {
-		setAge(age+1);
-	}
-	
-	/**
-	 * algo qui traite la rencontre de l'agent avec un autre agent
-	 * dépend du type des agents impliqués
-	 * @param a
-	 */
-	public abstract void rencontrer(Agent a); 
-	
-	/**
-	 * template method sur le cycle
-	 */
-	public final void cycle() {
-		vieillir();
-		if(this instanceof Deplacable) {
-			((Deplacable)this).seDeplacer();
-		}
-		seNourrir();
-		maj();
-	}
-	
-	protected abstract void maj();
-	protected abstract void seNourrir();
-	@Override
-	public String toString() {
-		//NomDeLaClasse n° id_agent (position x; position y)
-		return getClass().getSimpleName() + " " + id + " (" + (int) getCoord().getX() +";"+ (int) getCoord().getY() + ")";
-	}
-	
-	
+	//========================== Overrides =========================
 	
 	@Override
 	public int hashCode() {
@@ -180,6 +149,46 @@ public abstract class Agent implements Cloneable, Comparable<Agent> {
 		return true;
 	}
 	
+	@Override
+	public String toString() {
+		//NomDeLaClasse n° id_agent (position x; position y)
+		return getClass().getSimpleName() + " " + id + " (" + (int) getCoord().getX() +";"+ (int) getCoord().getY() + ")";
+	}
+	
+	//======================== Other methods =======================
+	
+
+	/**
+	 * fait vieillir l'agent d'une unité de temps
+	 */
+	public void vieillir() {
+		if (this instanceof Animal) {
+			setAge(age+1);
+		}
+	}
+	
+	/**
+	 * algo qui traite la rencontre de l'agent avec un autre agent
+	 * dépend du type des agents impliqués
+	 * @param a
+	 */
+	public abstract void rencontrer(Agent a); 
+	
+	/**
+	 * template method sur le cycle
+	 */
+	public final void cycle() {
+		vieillir();
+		if(this instanceof Deplacable) {
+			((Deplacable)this).seDeplacer();
+		}
+		seNourrir();
+		maj();
+	}
+	
+	public abstract void maj();
+	protected abstract void seNourrir();
+	
 	public int compareTo(Agent a) {
 		return this.id - a.getId();
 	}
@@ -194,4 +203,6 @@ public abstract class Agent implements Cloneable, Comparable<Agent> {
 		Agent.currentId++;
 		return currentId;
 	}
+	
+	
 }

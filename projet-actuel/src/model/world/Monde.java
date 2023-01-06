@@ -1,16 +1,21 @@
 package model.world;
 
 import java.awt.Point;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+import java.lang.Math;
+
 import model.agents.Agent;
+import model.agents.Etat;
 //partie 2
 //import model.agents.PointPositif;
 import model.agents.Sexe;
+import model.agents.Animal;
 import model.agents.animaux.AbeilleDomestique;
 import model.agents.animaux.AbeilleSolitaire;
 import model.agents.animaux.FrelonAsiatique;
@@ -20,7 +25,9 @@ import model.agents.vegetaux.Arbre;
 import model.agents.vegetaux.Fleur;
 import model.decor.Ruche;
 
-public class Monde {
+public class Monde extends Time{
+	//========================= Attributes =========================
+
 	/**
 	 * population d'agents dans le monde
 	 */
@@ -38,11 +45,17 @@ public class Monde {
 	 */
 	private static int LONGUEUR = 20;
 	
+	private static int rayon = 10;
+	
+	protected static boolean isNight = false;
+	
 	/**
 	 * 
 	 * @param nbAgents
 	 */
 	
+	//======================== Constructors ========================
+
 	public Monde(int nbAgents) {
 		agents=generateAgents(nbAgents);
 	}
@@ -52,6 +65,28 @@ public class Monde {
 	 * d'apparition d'un agent
 	 * @return
 	 */
+	
+	//====================== Getters / Setters =====================
+
+	//========================== Overrides =========================
+
+	@Override
+	public String toString() {
+		String ret="";
+		ret+="******************************\n";
+		ret+="Le monde contient "+agents.size()+" agents:\n";
+		
+		Set<Agent> coordSet = new TreeSet<Agent>(new CoordComparator());
+		coordSet.addAll(agents);
+		
+		for(Agent a: coordSet) {
+			ret+="\t"+a+"\n";
+		}
+		return ret;
+	}
+	
+	//======================== Other methods =======================
+
 	private static Map<Integer, Agent> probaAgent() {
 		Ruche r1 =new Ruche(new Point(10,50));
 		Ruche r2 =new Ruche(new Point(100,20));
@@ -166,30 +201,47 @@ public class Monde {
 		return ret;
 	}
 
-	public String toString() {
-		String ret="";
-		ret+="******************************\n";
-		ret+="Le monde contient "+agents.size()+" agents:\n";
-		/*
-		 * TODO
-		Set<Agent> coordSet = new TreeSet<Agent>(new CoordComparator());//TODO
-		coordSet.addAll(agents);
-		*/
-		for(Agent a:agents) {
-			ret+="\t"+a+"\n";
-		}
-		return ret;
-	}
-
 	/**
 	 * génère un cycle de vie dans le monde
 	 */
 	public void cycle() {
-		/*
-		 * TODO appeler la méthode cycle sur tous les agents		
-		 */
+		System.out.println("----------------------Cycle---------------------");
+		for (Agent a : agents) {
+			gererRencontres();
+			a.cycle();
+			a.maj();
+			
+			if (a instanceof Animal) {
+				if (((Animal) a).getNiveauSante() == Etat.Mourant) {
+					agents.remove(a);
+				}
+			}
+		}
 	}
 	
 	
-
+	public void gererRencontres() {
+		
+		HashSet<Agent> neighboors = new HashSet<Agent>();
+		for (Agent a : agents) {
+			for (Agent e : agents) {
+				
+				if ( Math.abs(
+						a.getCoord().getX() 
+						- e.getCoord().getX()) 
+					<= rayon
+					|| Math.abs(
+						a.getCoord().getY() 
+						- e.getCoord().getY()) 
+					<= rayon) {
+						neighboors.add(e);
+						
+					if (a instanceof Animal) {
+						//System.out.println(a.getClass().getSimpleName() + " rencontre " + e.getClass().getSimpleName());
+						((Animal)a).rencontrer(e);
+					}
+				}
+			}
+		}
+	}
 }

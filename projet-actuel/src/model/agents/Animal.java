@@ -44,13 +44,17 @@ public abstract class Animal extends Agent implements Deplacable {
 	 * SeDeplacer: soit abstract, soit encore mieux faire une interface Deplacable
 	 */
 	
+	//========================= Attributes =========================
+
 	/** état de santé de l'animal */
 	private Etat etat=Etat.Normal;
 	/** sexe de l'animal */
 	private Sexe sexe;
 	/** hebergeur de l'animal */
 	protected Hebergeur hebergeur;
-	
+
+	//======================== Constructors ========================
+
 	/* 
 	 * constructeurs 
 	 */
@@ -77,9 +81,8 @@ public abstract class Animal extends Agent implements Deplacable {
 		 */
 	}
 	
-	/*
-	 *  Accesseurs et mutateurs
-	 */
+	//====================== Getters / Setters =====================
+
 	public Sexe getSexe() {
 		return sexe;
 	}
@@ -95,6 +98,9 @@ public abstract class Animal extends Agent implements Deplacable {
 	 * @see complet.model.agents.Agent#toString()
 	 */
 	
+	//========================== Overrides =========================
+
+	@Override
 	public String toString() {
 		//bien penser à réutiliser l'existant de Agent avec le super.toString()
 		return super.toString()+", "+sexe;
@@ -111,10 +117,27 @@ public abstract class Animal extends Agent implements Deplacable {
 	 * déplacement aléatoire avec -1<=dx<=1 et  -1<=dy<=1
 	 * @see model.comportements.Deplacable#seDeplacer()
 	 */
+	
+	//======================== Other methods =======================
+
 	public void seDeplacer() {
-		int aleaX = (int)(Math.random()*3)-1;
-		int aleaY = (int)(Math.random()*3)-1;
-		this.setCoord((int)(coord.getX()+aleaX),(int)(coord.getY()+aleaY));
+		
+		int dX = 0;
+		int dY = 0;
+		
+		if (isNight() && hebergeur != null) {
+			int distX = (int) (hebergeur.getCoord().getX() - coord.getX());
+			int distY = (int) (hebergeur.getCoord().getY() - coord.getY());
+			
+			dX = (int) ((distX != 0) ? Math.signum(distX) : 0);
+			dY = (int) ((distY != 0) ? Math.signum(distY) : 0);
+			
+		} else {
+			dX = (int)(Math.random()*3)-1;
+			dY = (int)(Math.random()*3)-1;
+		}
+		
+		this.setCoord((int)(coord.getX()+dX),(int)(coord.getY()+dY));
 	}
 	
 	/**
@@ -165,6 +188,5 @@ public abstract class Animal extends Agent implements Deplacable {
 		if(it.hasPrevious()) {etat = it.previous();}
 		
 	}
-
 
 }

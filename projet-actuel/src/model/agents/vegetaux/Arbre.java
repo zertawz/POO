@@ -41,4 +41,9 @@ public class Arbre extends Vegetal implements Hebergeur{
 		qteNectar += Math.pow(2, taille);		
 	}
 
+	@Override
+	public void supprimer(Animal a) {
+		nbHeberges--;
+	}
+
 }

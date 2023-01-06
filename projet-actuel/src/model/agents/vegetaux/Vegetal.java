@@ -20,7 +20,7 @@ public abstract class Vegetal extends Agent {
 	}
 
 	@Override
-	protected void maj() {
+	public void maj() {
 		// TODO Auto-generated method stub
 		
 	}

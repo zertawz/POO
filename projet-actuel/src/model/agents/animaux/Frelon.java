@@ -26,13 +26,9 @@ public abstract class Frelon extends Animal {
 	
 	@Override
 	public void rencontrer(Agent a) {
-		try {
+		if (a instanceof Animal) { 
 			gestionProie((Animal)a);
 		}
-		catch (ClassCastException cce) {
-			System.err.println(a+" n'est pas un Animal");
-		}
-		
 	}
 	
 	protected void gestionProie(Animal a) {
@@ -46,7 +42,7 @@ public abstract class Frelon extends Animal {
 	}
 	
 	@Override
-	protected void maj() {
+	public void maj() {
 		// TODO Auto-generated method stub
 		
 	}

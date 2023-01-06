@@ -72,9 +72,10 @@ public abstract class Abeille extends Animal implements Hebergeur{
 	
 
 	@Override
-	protected void maj() {
-		// TODO Auto-generated method stub
-		
+	public void maj() {
+		if (this.getNiveauSante() == Etat.Mourant) {
+			this.parasite = false;
+		}
 	}
 
 	@Override
@@ -82,5 +83,11 @@ public abstract class Abeille extends Animal implements Hebergeur{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public void supprimer(Animal a) {
+		parasite = false;
+	}
+	
+	public void mourrir() {}
 
 }

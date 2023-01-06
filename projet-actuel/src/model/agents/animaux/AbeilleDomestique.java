@@ -11,5 +11,4 @@ public class AbeilleDomestique extends Abeille {
 		super(s, p);
 		r.accueillir(this);
 	}
-	
 }

@@ -79,4 +79,11 @@ public class Ruche extends Decor implements Hebergeur{
 		System.out.println(r);
 		*/
 	}
+
+	@Override
+	public void supprimer(Animal a) {
+		if (population.contains(a)) {
+			population.remove(a);
+		}
+	}
 }

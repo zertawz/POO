@@ -28,7 +28,7 @@ public class Varroa extends Animal {
 	}
 
 	@Override
-	protected void maj() {
+	public void maj() {
 		// TODO Auto-generated method stub
 		
 	}
