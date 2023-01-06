@@ -31,32 +31,6 @@ public class Animal extends Agent{
 		 this(Sexe.Femelle);
 	}
 	
-	/*
-	 *  Accesseurs et mutateurs
-	 */
-	//getter age
-	public int getAge(){
-		return this.age;
-	}
-	//setter age
-	public void setAge(int nouvelAge){
-		if (nouvelAge>=age){
-			this.age=nouvelAge;
-		}
-	}
-	//getter de id
-	public int getId(){
-		return this.id;
-	}
-	//getter de sexe
-	public Sexe getSexe(){
-		return this.sexe;
-	}
-	//getter de coord
-	public Point getCoord(){
-		return this.coord;
-	}
-
 	/* 
 	 * comportements d'instance
 	 */
