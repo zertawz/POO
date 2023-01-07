@@ -1,5 +1,6 @@
 package tp.model.comportements;
 
+//On importa animal pck il est dans les para
 import tp.model.agents.Animal;
 
 /**

@@ -1,4 +1,8 @@
 # 4. Premier pas en objet: définition d'un modèle (une abstraction) d'Animal
+- Abstraction
+- Polymorphisme
+- Encapsulation
+- Héritage
 # 4.1 Prise en main 
 ## 4.1.2 Commentaires
 Les commentaires en java sont gérées de la même
@@ -83,4 +87,38 @@ On note que `println()` permet seulement d'aller à la ligne après avoir affich
 ## 6.1.1 Définition des acteurs
 ## 6.1.2 Les agents
 ## 6.1.3 Les éléments de décors
-Réadaption du code en cours. Quand on ajoute le setter de coordonées on va éviter de regénerer une nouvelle instance de point mais on va modifier l'objet déjà existant (notion de lien entre les objets)
+Réadaption du code en cours. Quand on ajoute le setter de coordonées on va éviter de regénerer une nouvelle instance de point mais on va modifier l'objet déjà existant (notion de lien entre les objets).
+Réadaptation terminé, je suis capble de lancer le code depuis le launcher.
+J'ai sauté les étapes.
+
+
+# 6.2 Mise en place de la hiérarchie des agents
+Notion `d'interface` et de `responsabilité unique`, et `substitution de Liskov` pas très claires.
+
+
+# 6.3 Conception d'une hiérarchie d'agents
+## 6.3.1 travail préliminaire
+1. J'avance un peu vite
+
+## 6.3.2 Réutilisation du travail précédent
+1. Fait!
+2. Fait!
+3. Fait avec VIM!
+
+## 6.3.3 Classe de test
+1. C'est un principe d'abstraction. Le lanceur lance et ne s'occupe pas du reste
+2. Fait.
+3. De mémoire j'avais une 30aines d'erreurs et celle du launcher était un import qui n'était pas fait.
+
+## 6.3.4 Animal et Agent
+1. Le code est plus répartit et plus logique. On ne devra pas coder plusieurs fois les éléments dans la classe fille.
+2. C'est l'héritage qui est mis en oeuvre ici. On peut aussi parler d'abstraction.
+3. Je ne saisi pas bien la question.
+
+## 6.3.5 Hiérarchie complète des agents
+1. je vais voir si je peux la voler.
+2. En java on a 3 éléments:
+- Les classes
+- Les énum
+- Les interfaces
+Les interfaces: C'est quelque chose qui oblige l'implémentation de certaines méthodes dans la classe. Dans l'interface on définit seulement des fonctions (sous forme de prototype). Les interfaces utilisent le mot clef `implements`. Elle se code avec le mot clef `interface`. Elle correspond une contrainte, elle est très utile pour réaliser des collections car elle peut être utilisé pour "définir" le contenu de la liste. Ex: interface d'hebergeurs on peut donc faire un collection d'hebergeurs alors que les instances proviennent de classes différentes.

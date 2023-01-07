@@ -177,6 +177,7 @@ public class Animal extends Agent{
 		System.out.println(e);
 		System.out.println(d.equals(e));
 		System.out.println("Bonjour"=="Bonjour");
+		// Il utilise la méthode equals de Object() (super.equals)
 		Object toto = new Object();
 		Object tata = new Object();
 		System.out.println(toto.equals(tata));
