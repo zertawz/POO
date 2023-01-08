@@ -122,3 +122,26 @@ Notion `d'interface` et de `responsabilité unique`, et `substitution de Liskov`
 - Les énum
 - Les interfaces
 Les interfaces: C'est quelque chose qui oblige l'implémentation de certaines méthodes dans la classe. Dans l'interface on définit seulement des fonctions (sous forme de prototype). Les interfaces utilisent le mot clef `implements`. Elle se code avec le mot clef `interface`. Elle correspond une contrainte, elle est très utile pour réaliser des collections car elle peut être utilisé pour "définir" le contenu de la liste. Ex: interface d'hebergeurs on peut donc faire un collection d'hebergeurs alors que les instances proviennent de classes différentes.
+Pour répondre à la question: `Abeille` est un hébergeur ce qui fait que ses versions `AbeilleSolitaire` et `AbeilleDomestique` sont aussi des hébergeurs (Du `Varroa`).
+3. C'est une fonctionnalité qui va donc être implémenté dans la classe `Animal`
+4. Je vais skip et je regarderai comment celà à été codé (Je pense qu'on doit ajouter un attribut `Hebergeur` ainsi que des mutateurs).
+5. Fonctionnalité qui doit être codée dans la classe abeille et probablement avec une `enumération`.
+
+
+# 6.4 Décor
+1. Pas fait la hiérarchie
+2. toutes les classes abstraites sont des classes qui ne vont pas être directement instanciés. Ici il faut voir avec la hiérarchie.
+
+
+# 7 Un peu d'algorithmie
+Pas fait (Je reviendrai si le temps me le permet)
+
+
+# 8 Les collections
+# 8.2 Mise en place
+## 8.2.1 Nouveau projet
+Je suis en train de merge
+
+
+# 8.3 Compléter le projet avec votre existant
+C'est là où c'est la sauce...
